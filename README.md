@@ -9,10 +9,16 @@ Please feel free to clone/fork this repository and use it as a template for your
 
 ```
 thesis-project
-└───data
-│       │   sample_data.csv 
-└───results
-│       │   sample_results.png 
+└───data_processing
+│       │   al_data_selection.ipynb
+│       │   combine_test_data.ipynb
+│       │   inspect_data.ipynb
+│       │   preprocessing.ipynb
+└───eval
+│       │   evaluation_error_export.ipynb
+└───fine-tuning
+        │   predict.py
+        │   train_model.py
 └───src
 │   └───utils
 │       │   plotting.py

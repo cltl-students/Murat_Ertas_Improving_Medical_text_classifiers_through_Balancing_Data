@@ -26,7 +26,7 @@ import pandas as pd
 from simpletransformers.classification import MultiLabelClassificationModel
 
 import sys
-sys.path.insert(0, '../..')
+sys.path.insert(0, '../../..')
 
 import os
 os.environ['WANDB_MODE'] = 'offline'

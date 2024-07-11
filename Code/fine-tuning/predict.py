@@ -25,7 +25,7 @@ from pathlib import Path
 import numpy as np
 from scipy.special import softmax
 import sys
-sys.path.insert(0, '..')
+sys.path.insert(0, '../..')
 #from utils.config import PATHS
 from utils.timer import timer
 

@@ -4,7 +4,7 @@ Fine-tune and save a multi-label classification model with Simple Transformers.
 The script can be customized with the following parameters:
     --datapath: data dir
     --train_pkl: the file with the train data
-    --eval_pkl: the file with the eval data
+    --eval_pkl: the file with the evaluation data
     --config: json file containing the model args
     --model_args: the name of the model args dict from `config`
     --model_type: type of the pre-trained model, e.g. bert, roberta, electra
@@ -87,7 +87,7 @@ def train(
     eval_data = pd.read_pickle(eval_pkl)
     eval_data = train_data.rename({gold_col:'labels'}, axis=1)
     eval_df = eval_data[['text','labels']].copy()
-    #print(" ====== eval df: ======\n",eval_df)
+    #print(" ====== evaluation df: ======\n",eval_df)
 
     # model args
     # with open(config_json, 'r') as f:

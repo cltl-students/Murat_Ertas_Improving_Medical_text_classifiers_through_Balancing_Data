@@ -2,17 +2,19 @@
 # Project structure
 
 ```
-thesis-project
+Code
 └───data_processing
 │       │   al_data_selection.ipynb
 │       │   combine_test_data.ipynb
 │       │   inspect_data.ipynb
 │       │   preprocessing.ipynb
-└───eval
+└───evaluation
 │       │   evaluation_error_export.ipynb
 └───fine-tuning
         │   predict.py
         │   train_model.py
+Thesis report
+└───Murat_Ertas_MA_Thesis.pdf
 │   .gitignore
 │   LICENSE
 │   README.md

@@ -48,7 +48,10 @@ These scripts are implemented directly from the previous A-Proof research reposi
 - predict.py : This script is used to create predictions from a model for a given evaluation/test data. The data that model predicts over needs to be in a dataframe stored in pickle and text instances should be under a column named as 'text' within the dataframe. It takes the pickled dataframe as input, adds new columns for classification and confidence values and writes out the dataframe as pickle over the original input.
 ### 3. Evaluation
 - evaluation_error_export.ipynb :
-This notebook includes the code for evaluation of predictions. First part of the notebook it calculates the evaluation metrics of precision, recall and creates a classification report. Then, in the last part it creates confusion matrices for the given evaluation. 
+This notebook includes the code for evaluation of predictions. The notebook has 3 parts : Classification Report, Confusion Matrices, Error Export.
+  - Classification Report: It calculates the evaluation metrics of precision, recall and creates a classification report. 
+  - Confusion Matrices : It creates confusion matrices for the given evaluation. 
+  - Error Export : It exports the false negatives and false positives of a given evaluation into separate csv files per category.
 ## Thesis report
 
 The full thesis can be found in this folder.

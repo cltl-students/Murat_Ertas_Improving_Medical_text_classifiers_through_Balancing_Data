@@ -1,49 +1,65 @@
-# sample-thesis-project
-This repository is an example for the structure and content that a CLTL thesis project may have. 
-
-# Overview
-This repository assumes a Python project, with an Open License (MIT style). If any of these aspects are different from your project please make sure to change those accordingly.
-Please feel free to clone/fork this repository and use it as a template for your thesis.
 
 # Project structure
 
 ```
-thesis-project
-└───data
-│       │   sample_data.csv 
-└───results
-│       │   sample_results.png 
-└───src
-│   └───utils
-│       │   plotting.py
-│   │   main.py
+Code
+└───data_processing
+│       │   al_data_selection.ipynb
+│       │   combine_test_data.ipynb
+│       │   inspect_data.ipynb
+│       │   preprocessing.ipynb
+└───evaluation
+│       │   evaluation_error_export.ipynb
+└───fine-tuning
+        │   predict.py
+        │   train_model.py
+Thesis report
+└───Murat_Ertas_MA_Thesis.pdf
 │   .gitignore
 │   LICENSE
 │   README.md
 │   requirements.tx
 ```
 
-# To Do
-Once you start, please go through the following steps to tailor this template to your project
+## Code
+### 1. Data Processing
+- preprocessing.ipynb :
+The raw unstructured data consist of Electronic Health Records (EHR) represented in csv format which contains various kinds of information about the record. The classifiers used in this project has been trained and fine-tuned with anonymized sentences. Therefore the unstructured data had to be filtered from unnnecessary information, text had to be segmented into sentences and person and location entities had to be anonymized. The code in this notebook includes the steps and the code for this process.  
+  
 
+- inspect_data.ipynb :
+A generic data analysis code used in this research, calculates category distribution, pattern distribution, picking and comparing individual instances 
+
+
+- al_data_selection.ipynb : 
+This notebook includes the code that has been used in data querying within the Active Learning (AL) scheme. 
+  - Uncertainty based selection: The code that samples instances based on defined confidence range.
+  - Cosine Similarity based selection: The code for representing the sentences in word embedding averages and applying DBSCAN clustering aiming to get most informative representative instances.
+
+
+- combine_test_data.ipynb :
+This project combined 3 independent test sets to create a more balanced test data. This code demonstrates the process of combining these datasets.
+### 2. Fine-tuning
+These scripts are implemented directly from the previous A-Proof research repository. train_model.py is used to fine-tune a pre-trained model, predict.py is used to create predictions and output the updated evaluation data. They both use simpletransformers python library. 
+
+- train_model.py : This script used to fine-tune a pre-trained model. It needs access to a model folder and training hyperparameter can be defined within the script. It outputs the new fine-tuned model into the defined path.
+
+
+- predict.py : This script is used to create predictions from a model for a given evaluation/test data. The data that model predicts over needs to be in a dataframe stored in pickle and text instances should be under a column named as 'text' within the dataframe. It takes the pickled dataframe as input, adds new columns for classification and confidence values and writes out the dataframe as pickle over the original input.
+### 3. Evaluation
+- evaluation_error_export.ipynb :
+This notebook includes the code for evaluation of predictions. The notebook has 3 parts : Classification Report, Confusion Matrices, Error Export.
+  - Classification Report: It calculates the evaluation metrics of precision, recall and creates a classification report. 
+  - Confusion Matrices : It creates confusion matrices for the given evaluation. 
+  - Error Export : It exports the false negatives and false positives of a given evaluation into separate csv files per category.
 ## Thesis report
-You may decide to upload your report here directly, or to simply add a reference to where the report is hosted (e.g. Overleaf)
-- [ ] Add a reference to the thesis report
+
+The full thesis can be found in this folder.
 
 ## Data 
-To ensure reproducibility, Yu need to provide the data your project uses.
-- [ ] Add your data in the data folder
+The data used in this thesis consist of Electronic Health Records (EHR) from Amsterdam University Medical Centers (AUMC) and VU Medical Center (VUMC). Due to privacy and confidentiality agreements, these datasets are not publicly accessible.
 
-Sometimes, sharing sharing data is not straightforward. For example, there may be restrictions regarding with whom or how you can share the data you have. Some other times, the data you are using is open and easily accessible from other sites, in which case you might want to point directly to the original source. Either way, if this is the case for you please 
-- [ ] Add the data folder to ``.gitignore`` in order to avoid commiting these files to Github. For this you can simply uncomment the last line in the ``.gitignore`` file  
-```
-# Tailored ignored files
-data/*
-```
-- [ ] Make sure to add a ``README.md`` file inside the data folder, where you explain in detail how to obtain and structure the data
 
-## README
-- [ ] Add instructions on how to set up the project, how to run your code and what to expect as an output.
 
 
 
